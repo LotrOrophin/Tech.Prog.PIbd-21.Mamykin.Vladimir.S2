@@ -19,7 +19,7 @@ namespace AbstractPrintingHouseListImplement.Implements
             PrintingProduct tempProduct = model.Id.HasValue ? null : new PrintingProduct { Id = 1 };
             foreach (var product in source.Products)
             {
-                if (product.ProductName == model.ProductName && product.Id != model.Id)
+                if (product.PrintProductName == model.PrintProductName && product.Id != model.Id)
                 {
                     throw new Exception("Уже есть изделие с таким названием");
                 }
@@ -67,7 +67,7 @@ namespace AbstractPrintingHouseListImplement.Implements
         }
         private PrintingProduct CreateModel(PrintingProductBindingModel model, PrintingProduct product)
         {
-            product.ProductName = model.ProductName;
+            product.PrintProductName = model.PrintProductName;
             product.Price = model.Price;
             //обновляем существуюущие компоненты и ищем максимальный идентификатор
             int maxPCId = 0;
@@ -151,7 +151,7 @@ model.ProductComponents.Remove(source.ProductComponents[i].ComponentId);
             return new PrintingProductViewModel
             {
                 Id = product.Id,
-                ProductName = product.ProductName,
+                PrintProductName = product.PrintProductName,
                 Price = product.Price,
                 ProductComponents = productComponents
             };

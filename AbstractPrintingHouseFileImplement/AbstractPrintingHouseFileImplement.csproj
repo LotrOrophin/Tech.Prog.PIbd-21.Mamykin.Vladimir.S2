@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbstractPrintingHouseBusinessLogic\AbstractPrintingHouseBusinessLogic.csproj" />
+    <ProjectReference Include="..\AbstractPrintingHouseListImplement\AbstractPrintingHouseListImplement.csproj" />
   </ItemGroup>
 
 </Project>

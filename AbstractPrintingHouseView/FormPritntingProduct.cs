@@ -35,7 +35,7 @@ namespace AbstractPrintingHouseView
                     })?[0];
                     if (view != null)
                     {
-                        textBoxName.Text = view.ProductName;
+                        textBoxName.Text = view.PrintProductName;
                         textBoxPrice.Text = view.Price.ToString();
                         productComponents = view.ProductComponents;
                         LoadData();
@@ -152,7 +152,7 @@ MessageBoxIcon.Error);
                 logic.CreateOrUpdate(new PrintingProductBindingModel
                 {
                     Id = id,
-                    ProductName = textBoxName.Text,
+                    PrintProductName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
                     ProductComponents = productComponents
                 });
