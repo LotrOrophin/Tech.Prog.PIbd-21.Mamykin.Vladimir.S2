@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AbstractPrintingHouseDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractPrintingHouseDatabase))]
-    [Migration("20200401064233_InitialCreate")]
+    [Migration("20200401065403_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,9 +53,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PrintingProductId")
                         .HasColumnType("int");
 
@@ -67,7 +64,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("PrintingProductId");
 
                     b.ToTable("Orders");
                 });
@@ -120,7 +117,9 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                 {
                     b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.PrintingProduct", "PrintingProduct")
                         .WithMany("Orders")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("PrintingProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.ProductOfficeComponent", b =>

@@ -15,11 +15,13 @@ namespace AbstractPrintingHouseView
         public new IUnityContainer Container { get; set; }
         private readonly MainLogic logic;
         private readonly IOrderLogic orderLogic;
-        public FormMain(MainLogic logic, IOrderLogic orderLogic)
+        private readonly ReportLogic report;
+        public FormMain(MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
         {
             InitializeComponent();
             this.logic = logic;
             this.orderLogic = orderLogic;
+            this.report = report;
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -122,8 +124,29 @@ namespace AbstractPrintingHouseView
             }
         }
         private void ButtonRef_Click(object sender, EventArgs e)
-        {
+        {   
             LoadData();
+        }
+        private void ComponentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    report.SaveProductsToWord(new ReportBindingModel { FileName = dialog.FileName });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void ComponentProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportProductOfficeComponents>();
+            form.ShowDialog();
+        }
+        private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportOrders>();
+            form.ShowDialog();
         }
     }
 }

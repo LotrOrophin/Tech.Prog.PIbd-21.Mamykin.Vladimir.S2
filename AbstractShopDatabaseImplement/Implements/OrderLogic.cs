@@ -62,16 +62,20 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
 
         public List<OrderViewModel> Read(OrderBindingModel model)
         {
-            using (var context = new AbstractPrintingHouseDatabase()) { return context.Orders
-                .Where(rec => model == null || rec.Id == model.Id)
+            using (var context = new AbstractPrintingHouseDatabase())
+            {
+                return context.Orders
+                .Where(rec => model == null || (rec.Id == model.Id &&
+               model.Id.HasValue) ||
+                (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate
+               >= model.DateFrom && rec.DateCreate <= model.DateTo))
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
                     PrintProductId = rec.PrintingProductId,               
                     Count = rec.Count,
                     Sum = rec.Sum,
-                    PrintProductName = context.Products.FirstOrDefault(mod => mod.Id
-                == rec.PrintingProductId).PrintProductName,
+                    PrintProductName = context.Products.FirstOrDefault(mod => mod.Id == rec.PrintingProductId).PrintProductName,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement

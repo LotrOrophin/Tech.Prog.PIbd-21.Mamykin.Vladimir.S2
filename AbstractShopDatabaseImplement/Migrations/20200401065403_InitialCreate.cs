@@ -45,18 +45,17 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     Sum = table.Column<decimal>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     DateCreate = table.Column<DateTime>(nullable: false),
-                    DateImplement = table.Column<DateTime>(nullable: true),
-                    OrderId = table.Column<int>(nullable: true)
+                    DateImplement = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Products_OrderId",
-                        column: x => x.OrderId,
+                        name: "FK_Orders_Products_PrintingProductId",
+                        column: x => x.PrintingProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,9 +86,9 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_OrderId",
+                name: "IX_Orders_PrintingProductId",
                 table: "Orders",
-                column: "OrderId");
+                column: "PrintingProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductComponents_ComponentId",

@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrintingProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Counr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateImplements = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonTakeOrderInWork = new System.Windows.Forms.Button();
             this.ButtonOrderReady = new System.Windows.Forms.Button();
             this.ButtonPayOrder = new System.Windows.Forms.Button();
@@ -38,13 +45,10 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компонентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrintingProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Counr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateImplements = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокКомпонентовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.компонентныПоИзделиямToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.компонентыЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +68,42 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(612, 395);
             this.dataGridView.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // PrintingProduct
+            // 
+            this.PrintingProduct.HeaderText = "Канцелярское изделие";
+            this.PrintingProduct.Name = "PrintingProduct";
+            // 
+            // Counr
+            // 
+            this.Counr.HeaderText = "Количество";
+            this.Counr.Name = "Counr";
+            // 
+            // Summ
+            // 
+            this.Summ.HeaderText = "Сумма";
+            this.Summ.Name = "Summ";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Статус";
+            this.Status.Name = "Status";
+            // 
+            // DateCreate
+            // 
+            this.DateCreate.HeaderText = "Дата создание";
+            this.DateCreate.Name = "DateCreate";
+            // 
+            // DateImplements
+            // 
+            this.DateImplements.HeaderText = "Дата выполнения";
+            this.DateImplements.Name = "DateImplements";
             // 
             // ButtonTakeOrderInWork
             // 
@@ -115,12 +155,13 @@
             this.ButtonCreateOrder.UseVisualStyleBackColor = true;
             this.ButtonCreateOrder.Click += new System.EventHandler(this.ButtonCreateOrder_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникиToolStripMenuItem});
+            this.справочникиToolStripMenuItem,
+            this.отчетыToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip1";
+            this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
             this.menuStrip.TabIndex = 6;
             this.menuStrip.Text = "menuStrip1";
@@ -137,52 +178,47 @@
             // компонентыToolStripMenuItem
             // 
             this.компонентыToolStripMenuItem.Name = "компонентыToolStripMenuItem";
-            this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.компонентыToolStripMenuItem.Text = "Компоненты";
             this.компонентыToolStripMenuItem.Click += new System.EventHandler(this.компонентыToolStripMenuItem_Click);
             // 
             // изделияToolStripMenuItem
             // 
             this.изделияToolStripMenuItem.Name = "изделияToolStripMenuItem";
-            this.изделияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изделияToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.изделияToolStripMenuItem.Text = "Изделия";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.изделияToolStripMenuItem_Click);
             // 
-            // Id
+            // отчетыToolStripMenuItem
             // 
-            this.Id.HeaderText = "";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.списокКомпонентовToolStripMenuItem,
+            this.компонентныПоИзделиямToolStripMenuItem,
+            this.компонентыЗаказовToolStripMenuItem});
+            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.отчетыToolStripMenuItem.Text = "Отчеты";
             // 
-            // PrintingProduct
+            // списокКомпонентовToolStripMenuItem
             // 
-            this.PrintingProduct.HeaderText = "Канцелярское изделие";
-            this.PrintingProduct.Name = "PrintingProduct";
+            this.списокКомпонентовToolStripMenuItem.Name = "списокКомпонентовToolStripMenuItem";
+            this.списокКомпонентовToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.списокКомпонентовToolStripMenuItem.Text = "Список компонентов";
+            this.списокКомпонентовToolStripMenuItem.Click += new System.EventHandler(this.ComponentsToolStripMenuItem_Click);
             // 
-            // Counr
+            // компонентныПоИзделиямToolStripMenuItem
             // 
-            this.Counr.HeaderText = "Количество";
-            this.Counr.Name = "Counr";
+            this.компонентныПоИзделиямToolStripMenuItem.Name = "компонентныПоИзделиямToolStripMenuItem";
+            this.компонентныПоИзделиямToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.компонентныПоИзделиямToolStripMenuItem.Text = "Компонентны по изделиям";
+            this.компонентныПоИзделиямToolStripMenuItem.Click += new System.EventHandler(this.ComponentProductsToolStripMenuItem_Click);
             // 
-            // Summ
+            // компонентыЗаказовToolStripMenuItem
             // 
-            this.Summ.HeaderText = "Сумма";
-            this.Summ.Name = "Summ";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Статус";
-            this.Status.Name = "Status";
-            // 
-            // DateCreate
-            // 
-            this.DateCreate.HeaderText = "Дата создание";
-            this.DateCreate.Name = "DateCreate";
-            // 
-            // DateImplements
-            // 
-            this.DateImplements.HeaderText = "Дата выполнения";
-            this.DateImplements.Name = "DateImplements";
+            this.компонентыЗаказовToolStripMenuItem.Name = "компонентыЗаказовToolStripMenuItem";
+            this.компонентыЗаказовToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.компонентыЗаказовToolStripMenuItem.Text = "Список заказов";
+            this.компонентыЗаказовToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -227,5 +263,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateImplements;
+        private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокКомпонентовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem компонентныПоИзделиямToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem компонентыЗаказовToolStripMenuItem;
     }
 }
