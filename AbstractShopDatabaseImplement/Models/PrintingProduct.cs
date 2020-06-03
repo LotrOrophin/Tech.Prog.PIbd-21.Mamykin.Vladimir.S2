@@ -15,8 +15,10 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
         public string PrintProductName { get; set; }
         [Required]
         public decimal Price { get; set; }
-        public virtual ProductOfficeComponent ProductOfficeComponent { get; set; }
         [ForeignKey("ProductId")]
-        public virtual List<Order> Order { get; set; }
-    }
+        public virtual List<ProductOfficeComponent> ProductOfficeComponent { get; set; }
+        [ForeignKey("OrderId")]
+        public virtual List<Order> Orders { get; set; }
+    }   
 }
+    

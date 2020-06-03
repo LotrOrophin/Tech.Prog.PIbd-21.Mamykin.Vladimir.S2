@@ -15,6 +15,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
         [Required]
         public int Count { get; set; }
         public virtual OfficeComponent Component { get; set; }
+
         public virtual PrintingProduct PrintingProduct { get; set; }
 
     }
