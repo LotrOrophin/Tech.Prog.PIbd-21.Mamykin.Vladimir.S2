@@ -16,24 +16,35 @@ namespace AbstractPrintingHouseView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly IPrintingProductLogic logicPrint;
+        private readonly IClientLogic logicC;
         private readonly MainLogic logicM;
-        public FormCreateOrder(IPrintingProductLogic logicPrint, MainLogic logicM)
+        public FormCreateOrder(IPrintingProductLogic logicPrint, IClientLogic logicC, MainLogic logicM)
         {
             InitializeComponent();
             this.logicPrint = logicPrint;
             this.logicM = logicM;
+            this.logicC = logicC;
         }
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
             try
             {
-                List<PrintingProductViewModel> list = logicPrint.Read(null);
-                if (list != null)
+                List<PrintingProductViewModel> listP = logicPrint.Read(null);
+                if (listP != null)
                 {
                     comboBoxPrintProduct.DisplayMember = "PrintProductName";
                     comboBoxPrintProduct.ValueMember = "Id";
-                    comboBoxPrintProduct.DataSource = list;
+                    comboBoxPrintProduct.DataSource = listP;
                     comboBoxPrintProduct.SelectedItem = null;
+                }
+                var listC = logicC.Read(null);
+
+                if (listC != null)
+                {
+                    comboBoxClient.DisplayMember = "FIO";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.DataSource = listC;
+                    comboBoxClient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -87,11 +98,17 @@ namespace AbstractPrintingHouseView
                MessageBoxIcon.Error);
                 return;
             }
+            if (comboBoxClient.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }   
             try
             {
                 logicM.CreateOrder(new CreateOrderBindingModel
                 {
                     ProductId = Convert.ToInt32(comboBoxPrintProduct.SelectedValue),
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });
@@ -111,6 +128,8 @@ namespace AbstractPrintingHouseView
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+
     }
 }
 

@@ -151,7 +151,7 @@ model.ProductComponents.Remove(source.ProductComponents[i].ComponentId);
             return new PrintingProductViewModel
             {
                 Id = product.Id,
-                PrintProductName = product.PrintProductName,
+                printingProductName = product.PrintProductName,
                 Price = product.Price,
                 ProductComponents = productComponents
             };

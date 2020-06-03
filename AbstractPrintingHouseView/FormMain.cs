@@ -45,7 +45,8 @@ namespace AbstractPrintingHouseView
                             order.Sum,
                             order.Status,
                             order.DateCreate,
-                            order.DateImplement
+                            order.DateImplement,
+                            order.ClientFIO
                         });
                     }
                 }
@@ -59,6 +60,11 @@ namespace AbstractPrintingHouseView
         private void компонентыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormOfficeComponents>();
+            form.ShowDialog();
+        }
+        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClients>();
             form.ShowDialog();
         }
         private void изделияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,5 +154,6 @@ namespace AbstractPrintingHouseView
             var form = Container.Resolve<FormReportOrders>();
             form.ShowDialog();
         }
+
     }
 }

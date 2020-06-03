@@ -17,7 +17,9 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
         public void CreateOrder(CreateOrderBindingModel model)
         {
             orderLogic.CreateOrUpdate(new OrderBindingModel
+
             {
+                ClientId = model.ClientId,
                 ProductId = model.ProductId,
                 Count = model.Count,
                 Sum = model.Sum,
@@ -42,6 +44,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 ProductId = order.PrintProductId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -67,6 +70,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 ProductId = order.PrintProductId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -92,6 +96,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
                 ProductId = order.PrintProductId,
                 Count = order.Count,
                 Sum = order.Sum,

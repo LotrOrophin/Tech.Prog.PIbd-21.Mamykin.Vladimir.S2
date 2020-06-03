@@ -2,6 +2,7 @@
 using AbstractPrintingHouseBusinessLogic.Interfaces;
 using AbstractPrintingHouseBusinessLogic.ViewModels;
 using AbstractPrintingHouseDatabaseImplement.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                     context.Orders.Add(element);
                 }
                 element.PrintingProductId = model.ProductId == 0 ? element.PrintingProductId : model.ProductId ;
+                element.ClientId = model.ClientId == null ? element.ClientId : (int)model.ClientId;
                 element.Count = model.Count;
                 element.DateCreate = model.DateCreate;
                 element.DateImplement = model.DateImplement;
@@ -68,17 +70,21 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                 .Where(rec => model == null || (rec.Id == model.Id &&
                model.Id.HasValue) ||
                 (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate
-               >= model.DateFrom && rec.DateCreate <= model.DateTo))
+               >= model.DateFrom && rec.DateCreate <= model.DateTo) || (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+                .Include(rec => rec.Client)
+                .Include(rec => rec.PrintingProduct)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
+                    ClientId = rec.ClientId,
                     PrintProductId = rec.PrintingProductId,               
                     Count = rec.Count,
                     Sum = rec.Sum,
                     PrintProductName = context.Products.FirstOrDefault(mod => mod.Id == rec.PrintingProductId).PrintProductName,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement
+                    DateImplement = rec.DateImplement,
+                    ClientFIO = rec.Client.FIO
                 })
                 .ToList();
             }

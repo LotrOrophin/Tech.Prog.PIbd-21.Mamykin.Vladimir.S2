@@ -39,6 +39,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 element = new Order { Id = maxId + 1 };
                 source.Orders.Add(element);
             }
+            element.ClientId = model.ClientId == null ? element.ClientId : (int)model.ClientId;
             element.Count = model.Count;
             element.DateCreate = model.DateCreate;
             element.DateImplement = model.DateImplement;
@@ -64,13 +65,20 @@ namespace AbstractPrintingHouseFileImplement.Implements
         public List<OrderViewModel> Read(OrderBindingModel model)
         {
             return source.Orders
-            .Where(rec => model == null || rec.Id == model.Id)
+            .Where(
+                rec => model == null
+                || rec.Id == model.Id
+                || model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo
+                || model.ClientId.HasValue && rec.ClientId == model.ClientId
+            )
             .Select(rec => new OrderViewModel
             {
                 Id = rec.Id,
+                ClientId = rec.ClientId,
                 PrintProductId = rec.ProductId,               
                 Count = rec.Count,
                 Sum = rec.Sum,
+                ClientFIO = source.Clients.FirstOrDefault(recC => recC.Id == rec.ClientId)?.FIO,
                 PrintProductName = source.Products.FirstOrDefault(mod => mod.Id
             == rec.ProductId).PrintProductName,
                 Status = rec.Status,

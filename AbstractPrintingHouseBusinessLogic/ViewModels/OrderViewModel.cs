@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace AbstractPrintingHouseBusinessLogic.ViewModels
@@ -9,25 +10,37 @@ namespace AbstractPrintingHouseBusinessLogic.ViewModels
     /// <summary>
     /// Заказ
     /// </summary>
+    //
+    [DataContract]
     public class OrderViewModel
     {
-        public int Id { get; set; }
+        [DataMember]
+        public int Id { get; set; }     
+        [DataMember]
+        public int ClientId { get; set; }
+        [DataMember]
+        public int ProductId { get; set; }
+        [DataMember]
+        [DisplayName("Клиент")]
+        public string ClientFIO { get; set; }
+        [DataMember]
         public int PrintProductId { get; set; }
+        [DataMember]
         [DisplayName("Изделие")]
         public string PrintProductName { get; set; }
-
+        [DataMember]
         [DisplayName("Количество")]
         public int Count { get; set; }
-
+        [DataMember]
         [DisplayName("Сумма")]
         public decimal Sum { get; set; }
-
+        [DataMember]
         [DisplayName("Статус")]
         public OrderStatus Status { get; set; }
-
+        [DataMember]
         [DisplayName("Дата создания")]
         public DateTime DateCreate { get; set; }
-
+        [DataMember]
         [DisplayName("Дата выполнения")]
         public DateTime? DateImplement { get; set; }
 

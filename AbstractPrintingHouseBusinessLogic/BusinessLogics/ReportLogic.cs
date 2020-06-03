@@ -35,7 +35,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             {
                 reportList.Add(new ReportProductOfficeComponentViewModel
                 {
-                   PrintingProductName = product.PrintProductName,
+                   PrintingProductName = product.printingProductName,
                 });
                 foreach (var component in product.ProductComponents)
                     reportList.Add(new ReportProductOfficeComponentViewModel

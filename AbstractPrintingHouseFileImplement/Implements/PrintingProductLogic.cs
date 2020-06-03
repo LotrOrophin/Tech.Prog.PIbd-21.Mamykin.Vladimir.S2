@@ -87,7 +87,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
             .Select(rec => new PrintingProductViewModel
             {
                 Id = rec.Id,
-                PrintProductName = rec.PrintProductName,
+                printingProductName = rec.PrintProductName,
                 Price = rec.Price,
                 ProductComponents = source.ProductComponents
             .Where(recPC => recPC.ProductId == rec.Id)

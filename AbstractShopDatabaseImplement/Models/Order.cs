@@ -3,13 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+
 namespace AbstractPrintingHouseDatabaseImplement.Models
 {
     /// <summary>
     /// Заказ
     /// </summary>
+    ///     
     public class Order
-    {
+
+    {   
+        public int ClientId { get; set; }
         public int Id { get; set; }
         public int PrintingProductId { get; set; }
         [Required]
@@ -23,5 +28,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
         public DateTime? DateImplement { get; set; }        
 
         public PrintingProduct PrintingProduct { get; set; }
+        public Client Client { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
-                        Texts = new List<string> { product.PrintProductName, product.Price.ToString() },
+                        Texts = new List<string> { product.printingProductName, product.Price.ToString() },
                         TextProperties = new WordParagraphProperties
                         {
                             Size = "24",

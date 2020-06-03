@@ -36,6 +36,8 @@
             this.labelEzdel = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.labelSumm = new System.Windows.Forms.Label();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxPrintProduct
@@ -49,7 +51,7 @@
             // 
             // textBoxCount
             // 
-            this.textBoxCount.Location = new System.Drawing.Point(100, 39);
+            this.textBoxCount.Location = new System.Drawing.Point(101, 75);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(337, 20);
             this.textBoxCount.TabIndex = 1;
@@ -57,14 +59,14 @@
             // 
             // textBoxSum
             // 
-            this.textBoxSum.Location = new System.Drawing.Point(101, 65);
+            this.textBoxSum.Location = new System.Drawing.Point(101, 101);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.Size = new System.Drawing.Size(337, 20);
             this.textBoxSum.TabIndex = 2;
             // 
             // ButtonCancel
             // 
-            this.ButtonCancel.Location = new System.Drawing.Point(352, 108);
+            this.ButtonCancel.Location = new System.Drawing.Point(354, 127);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(84, 20);
             this.ButtonCancel.TabIndex = 3;
@@ -74,7 +76,7 @@
             // 
             // ButtonSave
             // 
-            this.ButtonSave.Location = new System.Drawing.Point(262, 108);
+            this.ButtonSave.Location = new System.Drawing.Point(264, 127);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(84, 20);
             this.ButtonSave.TabIndex = 4;
@@ -94,7 +96,7 @@
             // labelCount
             // 
             this.labelCount.AutoSize = true;
-            this.labelCount.Location = new System.Drawing.Point(24, 42);
+            this.labelCount.Location = new System.Drawing.Point(24, 75);
             this.labelCount.Name = "labelCount";
             this.labelCount.Size = new System.Drawing.Size(66, 13);
             this.labelCount.TabIndex = 6;
@@ -103,17 +105,36 @@
             // labelSumm
             // 
             this.labelSumm.AutoSize = true;
-            this.labelSumm.Location = new System.Drawing.Point(24, 72);
+            this.labelSumm.Location = new System.Drawing.Point(24, 101);
             this.labelSumm.Name = "labelSumm";
             this.labelSumm.Size = new System.Drawing.Size(41, 13);
             this.labelSumm.TabIndex = 7;
             this.labelSumm.Text = "Сумма";
             // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(101, 39);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(338, 21);
+            this.comboBoxClient.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Клиент";
+            // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 141);
+            this.ClientSize = new System.Drawing.Size(463, 171);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.labelSumm);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelEzdel);
@@ -140,5 +161,7 @@
         private System.Windows.Forms.Label labelEzdel;
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Label labelSumm;
+        private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.Label label1;
     }
 }

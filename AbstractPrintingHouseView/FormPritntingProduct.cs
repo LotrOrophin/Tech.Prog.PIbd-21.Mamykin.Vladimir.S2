@@ -35,7 +35,7 @@ namespace AbstractPrintingHouseView
                     })?[0];
                     if (view != null)
                     {
-                        textBoxName.Text = view.PrintProductName;
+                        textBoxName.Text = view.printingProductName;
                         textBoxPrice.Text = view.Price.ToString();
                         productComponents = view.ProductComponents;
                         LoadData();
