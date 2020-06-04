@@ -70,7 +70,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
         /// Сохранение кондитерских изделий с ценой в файл-Word
         /// </summary>
         /// <param name="model"></param>
-        public void SaveProductsToWord(ReportBindingModel model)
+        public void SaveProductsToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
             {

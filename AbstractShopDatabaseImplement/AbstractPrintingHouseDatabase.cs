@@ -10,7 +10,7 @@ namespace AbstractPrintingHouseDatabaseImplement
         {
             if (optionsBuilder.IsConfigured == false)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-2VLTMI2\SQLEXPRESS;Initial Catalog=PrintingHouseLab5Database;Integrated Security=True;MultipleActiveResultSets=True;");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-2VLTMI2\SQLEXPRESS;Initial Catalog=PrintingHouseLab6Database;Integrated Security=True;MultipleActiveResultSets=True;");
             }
             base.OnConfiguring(optionsBuilder);
         }
@@ -19,6 +19,7 @@ namespace AbstractPrintingHouseDatabaseImplement
         public virtual DbSet<ProductOfficeComponent> ProductComponents { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
         public virtual DbSet<Client> Clients { set; get; }
+        public virtual DbSet<Implementer> Implementers { set; get; }
     }
 }
 

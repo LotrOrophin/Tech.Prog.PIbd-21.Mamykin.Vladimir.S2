@@ -43,6 +43,27 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Implementer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImplementerFIO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PauseTime")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkingTime")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Implementers");
+                });
+
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.OfficeComponent", b =>
                 {
                     b.Property<int>("Id")
@@ -78,6 +99,9 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ImplementerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PrintingProductId")
                         .HasColumnType("int");
 
@@ -90,6 +114,8 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("ImplementerId");
 
                     b.HasIndex("PrintingProductId");
 
@@ -147,6 +173,10 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Implementer", "Implementer")
+                        .WithMany("Orders")
+                        .HasForeignKey("ImplementerId");
 
                     b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.PrintingProduct", "PrintingProduct")
                         .WithMany("Orders")

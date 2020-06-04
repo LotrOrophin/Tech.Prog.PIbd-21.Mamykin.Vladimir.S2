@@ -111,5 +111,5 @@ namespace AbstractPrintingHouseListImplement.Implements
                 Password = client.Password
             };
         }
-    }
+    }   
 }

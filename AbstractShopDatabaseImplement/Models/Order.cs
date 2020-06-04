@@ -15,6 +15,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
 
     {   
         public int ClientId { get; set; }
+        public int? ImplementerId { get; set; }
         public int Id { get; set; }
         public int PrintingProductId { get; set; }
         [Required]
@@ -29,5 +30,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
 
         public PrintingProduct PrintingProduct { get; set; }
         public Client Client { get; set; }
+        public Implementer Implementer { get; set; }
     }
 }

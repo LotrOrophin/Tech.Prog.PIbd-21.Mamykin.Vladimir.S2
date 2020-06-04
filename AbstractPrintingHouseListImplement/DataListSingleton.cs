@@ -11,6 +11,7 @@ namespace AbstractPrintingHouseListImplement
         public List<PrintingProduct> Products { get; set; }
         public List<ProductOfficeComponent> ProductComponents { get; set; }
         public List<Client> Clients { get; set; }
+        public List<Implementer> Implementers { get; set; }
         private DataListSingleton()
         {
         Components = new List<OfficeComponent>();
@@ -18,6 +19,7 @@ namespace AbstractPrintingHouseListImplement
             Products = new List<PrintingProduct>();
             ProductComponents = new List<ProductOfficeComponent>();
             Clients = new List<Client>();
+            Implementers = new List<Implementer>();
         }
         public static DataListSingleton GetInstance()
         {
