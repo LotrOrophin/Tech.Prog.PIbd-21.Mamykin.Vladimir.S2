@@ -79,7 +79,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
             {
                 Id = rec.Id,
                 ClientId = rec.ClientId,
-                PrintProductId = rec.ProductId,
+                ProductId = rec.ProductId,
                 ImplementerId = rec.ImplementerId,
                 Count = rec.Count,  
                 Sum = rec.Sum,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbstractPrintingHouseBusinessLogic.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
@@ -11,18 +12,24 @@ namespace AbstractPrintingHouseBusinessLogic.ViewModels
     /// </summary>
     /// 
     [DataContract]
-    public class PrintingProductViewModel
+    public class PrintingProductViewModel : BaseViewModel
     {
+        [Column(title: "Название изделия", gridViewAutoSize: GridViewAutoSize.Fill)]
         [DataMember]
-        public int Id { get; set; }
-        [DisplayName("Название изделия")]
-        [DataMember]
-
         public string printingProductName { get; set; }
+
+        [Column(title: "Цена", width: 50)]
         [DataMember]
-        [DisplayName("Цена")]
         public decimal Price { get; set; }
+
         [DataMember]
         public Dictionary<int, (string, int)> ProductComponents { get; set; }
+
+        public override List<string> Properties() => new List<string>
+        {
+            "Id",
+            "ProductName",
+            "Price"
+        };
     }
 }

@@ -61,7 +61,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
                 {
                     Id = order.Id,
                     ClientId = order.ClientId,
-                    ProductId = order.PrintProductId,
+                    ProductId = order.ProductId,
                     ImplementerId = model.ImplementerId,
                     Count = order.Count,
                     Sum = order.Sum,
@@ -95,7 +95,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
-                ProductId = order.PrintProductId,
+                ProductId = order.ProductId,
                 ImplementerId = order.ImplementerId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -129,7 +129,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
-                ProductId = order.PrintProductId,
+                ProductId = order.ProductId,
                 ImplementerId = model.ImplementerId,
                 Count = order.Count,
                 Sum = order.Sum,

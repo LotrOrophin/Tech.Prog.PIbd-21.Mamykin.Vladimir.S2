@@ -28,18 +28,7 @@ namespace AbstractPrintingHouseView
             {
                 try
                 {
-                    PrintingProductViewModel view = logic.Read(new PrintingProductBindingModel
-                    {
-                        Id =
-                   id.Value
-                    })?[0];
-                    if (view != null)
-                    {
-                        textBoxName.Text = view.printingProductName;
-                        textBoxPrice.Text = view.Price.ToString();
-                        productComponents = view.ProductComponents;
-                        LoadData();
-                    }
+                    Program.ConfigGrid(logic.Read(null), dataGridView);
                 }
                 catch (Exception ex)
                 {

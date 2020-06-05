@@ -123,7 +123,7 @@ namespace AbstractPrintingHouseListImplement.Implements
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
-                PrintProductId = order.ProductId,
+                ProductId = order.ProductId,
                 PrintProductName = productName,
                 Count = order.Count,
                 Sum = order.Sum,
