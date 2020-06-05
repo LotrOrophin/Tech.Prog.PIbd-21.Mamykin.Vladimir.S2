@@ -90,6 +90,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement,
+
                     ImplementerFIO = rec.ImplementerId.HasValue ? rec.Implementer.ImplementerFIO : string.Empty,
                     ClientFIO = rec.Client.FIO
                 })

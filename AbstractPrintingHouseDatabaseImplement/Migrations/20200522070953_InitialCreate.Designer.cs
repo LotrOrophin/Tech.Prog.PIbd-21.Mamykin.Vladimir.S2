@@ -4,14 +4,16 @@ using AbstractPrintingHouseDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbstractPrintingHouseDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractPrintingHouseDatabase))]
-    partial class AbstractPrintingHouseDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200522070953_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,26 +45,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Implementer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImplementerFIO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PauseTime")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkingTime")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Implementers");
-                });
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.OfficeComponent", b =>
                 {
                     b.Property<int>("Id")
@@ -88,6 +70,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
 
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
+
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -96,9 +79,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
 
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("ImplementerId")
-                        .HasColumnType("int");
 
                     b.Property<int>("PrintingProductId")
                         .HasColumnType("int");
@@ -110,9 +90,8 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-                    b.HasIndex("ClientId");
 
-                    b.HasIndex("ImplementerId");
+                    b.HasIndex("ClientId");
 
                     b.HasIndex("PrintingProductId");
 
@@ -170,10 +149,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Implementer", "Implementer")
-                        .WithMany("Orders")
-                        .HasForeignKey("ImplementerId");
 
                     b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.PrintingProduct", "PrintingProduct")
                         .WithMany("Orders")
