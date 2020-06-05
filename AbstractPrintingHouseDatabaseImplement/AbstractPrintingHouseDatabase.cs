@@ -11,6 +11,7 @@ namespace AbstractPrintingHouseDatabaseImplement
             if (optionsBuilder.IsConfigured == false)
             {
                 optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-2VLTMI2\SQLEXPRESS;Initial Catalog=PrintingHouse3Database;Integrated Security=True;MultipleActiveResultSets=True;");
+
             }
             base.OnConfiguring(optionsBuilder);
         }

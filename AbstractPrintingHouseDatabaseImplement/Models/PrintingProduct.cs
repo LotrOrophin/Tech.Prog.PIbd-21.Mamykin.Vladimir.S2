@@ -17,6 +17,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
         public decimal Price { get; set; }
         [ForeignKey("ProductId")]
         public virtual List<ProductOfficeComponent> ProductOfficeComponent { get; set; }
+
         [ForeignKey("PrintingProductId")]
         public virtual List<Order> Orders { get; set; }
     }   
