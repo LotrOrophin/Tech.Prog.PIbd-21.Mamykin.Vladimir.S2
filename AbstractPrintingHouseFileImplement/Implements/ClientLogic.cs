@@ -1,7 +1,7 @@
 ﻿using AbstractPrintingHouseBusinessLogic.BindingModels;
 using AbstractPrintingHouseBusinessLogic.Interfaces;
 using AbstractPrintingHouseBusinessLogic.ViewModels;
-using AbstractPrintingHouseListImplement.Models;
+using AbstractPrintingHouseFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
 
         public void CreateOrUpdate(ClientBindingModel model)
         {
-            Client element = source.Clients.FirstOrDefault(rec => rec.Email == model.Login && rec.Id != model.Id);
+            Client element = source.Clients.FirstOrDefault(rec => rec.Email == model.Email && rec.Id != model.Id);
 
             if (element != null)
             {
@@ -43,7 +43,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 source.Clients.Add(element);
             }
 
-            element.Email = model.Login;
+            element.Email = model.Email;
             element.FIO = model.FIO;
             element.Password = model.Password;
         }
@@ -68,7 +68,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
             .Where(
                 rec => model == null
                 || rec.Id == model.Id
-                || rec.Email == model.Login && rec.Password == model.Password
+                || rec.Email == model.Email && rec.Password == model.Password
             )
             .Select(rec => new ClientViewModel
             {

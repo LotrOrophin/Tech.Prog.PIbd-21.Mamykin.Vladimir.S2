@@ -32,6 +32,7 @@
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateAccountStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сообщенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -42,7 +43,8 @@
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createOrderToolStripMenuItem,
             this.UpdateOrderListToolStripMenuItem,
-            this.UpdateAccountStripMenuItem});
+            this.UpdateAccountStripMenuItem,
+            this.сообщенияToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(805, 24);
@@ -81,6 +83,13 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.TabIndex = 1;
             // 
+            // сообщенияToolStripMenuItem
+            // 
+            this.сообщенияToolStripMenuItem.Name = "сообщенияToolStripMenuItem";
+            this.сообщенияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сообщенияToolStripMenuItem.Text = "Сообщения";
+            this.сообщенияToolStripMenuItem.Click += new System.EventHandler(this.сообщенияToolStripMenuItem_Click);
+            // 
             // TempForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,5 +117,6 @@
         private System.Windows.Forms.ToolStripMenuItem UpdateOrderListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UpdateAccountStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.ToolStripMenuItem сообщенияToolStripMenuItem;
     }
 }

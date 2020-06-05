@@ -29,7 +29,7 @@ namespace AbstractPrintingHouseClientView
                     {
                         Id = Program.Client.Id,
                         FIO = textBoxClientFIO.Text,
-                        Login = textBoxEmail.Text,
+                        Email = textBoxEmail.Text,
                         Password = textBoxPassword.Text
                     });
 

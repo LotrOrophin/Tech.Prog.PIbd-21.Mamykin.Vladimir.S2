@@ -40,6 +40,7 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
+            this.buttonMessages = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
             this.запускРаботToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.исполнителиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,6 +157,16 @@
             this.buttonPayOrder.UseVisualStyleBackColor = true;
             this.buttonPayOrder.Click += new System.EventHandler(this.buttonPayOrder_Click);
             // 
+            // buttonMessages
+            // 
+            this.buttonMessages.Location = new System.Drawing.Point(1030, 271);
+            this.buttonMessages.Name = "buttonMessages";
+            this.buttonMessages.Size = new System.Drawing.Size(141, 23);
+            this.buttonMessages.TabIndex = 7;
+            this.buttonMessages.Text = "Сообщения";
+            this.buttonMessages.UseVisualStyleBackColor = true;
+            this.buttonMessages.Click += new System.EventHandler(this.buttonMessages_Click);
+            // 
             // buttonRef
             // 
             this.buttonRef.Location = new System.Drawing.Point(1030, 76);
@@ -189,6 +200,7 @@
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonPayOrder);
             this.Controls.Add(this.buttonCreateOrder);
+            this.Controls.Add(this.buttonMessages);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -221,5 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem запускРаботToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem исполнителиToolStripMenuItem;
+        private System.Windows.Forms.Button buttonMessages;
+
     }
 }

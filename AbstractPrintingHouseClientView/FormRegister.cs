@@ -26,7 +26,7 @@ namespace AbstractPrintingHouseClientView
                     APIClient.PostRequest("api/client/register", new ClientBindingModel
                     {
                         FIO = textBoxFIO.Text,
-                        Login = textBoxEmail.Text,
+                        Email = textBoxEmail.Text,
                         Password = textBoxPassword.Text
                     });
                     MessageBox.Show("Регистрация прошла успешно", "Сообщение",

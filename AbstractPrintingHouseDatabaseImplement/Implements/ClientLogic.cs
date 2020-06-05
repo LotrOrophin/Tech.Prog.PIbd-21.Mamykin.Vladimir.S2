@@ -16,7 +16,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
         {
             using (var context = new AbstractPrintingHouseDatabase())
             {
-                Client element = context.Clients.FirstOrDefault(rec => rec.Email == model.Login && rec.Id != model.Id);
+                Client element = context.Clients.FirstOrDefault(rec => rec.Email == model.Email && rec.Id != model.Id);
 
                 if (element != null)
                 {
@@ -38,7 +38,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                     context.Clients.Add(element);
                 }
 
-                element.Email = model.Login;
+                element.Email = model.Email;
                 element.FIO = model.FIO;
                 element.Password = model.Password;
 
@@ -70,7 +70,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
             {
                 return context.Clients
                 .Where(rec => model == null || rec.Id == model.Id
-                || rec.Email == model.Login && rec.Password == model.Password)
+                || rec.Email == model.Email && rec.Password == model.Password)
                 .Select(rec => new ClientViewModel
                 {
                     Id = rec.Id,

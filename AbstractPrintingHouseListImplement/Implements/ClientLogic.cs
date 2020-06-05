@@ -78,7 +78,7 @@ namespace AbstractPrintingHouseListImplement.Implements
                             break;
                         }
                     }
-                    else if (client.Email == model.Login && client.Password == model.Password)
+                    else if (client.Email == model.Email && client.Password == model.Password)
                     {
                         result.Add(CreateViewModel(client));
                         break;
@@ -96,7 +96,7 @@ namespace AbstractPrintingHouseListImplement.Implements
         private Client CreateModel(ClientBindingModel model, Client client)
         {
             client.FIO = model.FIO;
-            client.Email = model.Login;
+            client.Email = model.Email;
             client.Password = model.Password;
             return client;
         }

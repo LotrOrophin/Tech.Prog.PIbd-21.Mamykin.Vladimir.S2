@@ -64,6 +64,33 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.ToTable("Implementers");
                 });
 
+            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.MessageInfo", b =>
+                {
+                    b.Property<string>("MessageId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateDelivery")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SenderName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("MessageInfoes");
+                });
+
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.OfficeComponent", b =>
                 {
                     b.Property<int>("Id")
@@ -164,6 +191,13 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductComponents");
+                });
+
+            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.MessageInfo", b =>
+                {
+                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Order", b =>
