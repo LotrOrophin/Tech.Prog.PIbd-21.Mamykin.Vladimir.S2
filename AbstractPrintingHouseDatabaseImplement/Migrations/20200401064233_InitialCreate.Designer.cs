@@ -4,14 +4,16 @@ using AbstractPrintingHouseDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbstractPrintingHouseDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractPrintingHouseDatabase))]
-    partial class AbstractPrintingHouseDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200401064233_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,6 +52,10 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
 
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PrintingProductId")
                         .HasColumnType("int");
 
@@ -61,7 +67,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PrintingProductId");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Orders");
                 });
@@ -114,9 +120,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                 {
                     b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.PrintingProduct", "PrintingProduct")
                         .WithMany("Orders")
-                        .HasForeignKey("PrintingProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.ProductOfficeComponent", b =>
