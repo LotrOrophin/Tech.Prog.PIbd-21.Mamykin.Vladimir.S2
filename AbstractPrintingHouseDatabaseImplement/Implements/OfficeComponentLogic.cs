@@ -17,7 +17,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                rec.ComponentName == model.ComponentName && rec.Id != model.Id);
                 if (element != null)
                 {
-                    throw new Exception("Уже есть компонент с таким названием  ");
+                    throw new Exception("Уже есть компонент с таким названием");
                 }
                 if (model.Id.HasValue)
                 {
