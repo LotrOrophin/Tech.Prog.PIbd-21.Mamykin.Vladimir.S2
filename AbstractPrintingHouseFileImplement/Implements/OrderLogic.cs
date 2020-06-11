@@ -71,21 +71,13 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 PrintProductId = rec.ProductId,               
                 Count = rec.Count,
                 Sum = rec.Sum,
-                PrintProductName = GetProductName(rec.ProductId),
+                PrintProductName = source.Products.FirstOrDefault(mod => mod.Id
+            == rec.ProductId).PrintProductName,
                 Status = rec.Status,
                 DateCreate = rec.DateCreate,
                 DateImplement = rec.DateImplement
             })
             .ToList();
-        }
-        private string GetProductName(int id)
-        {
-            string name = "";
-            var product = source.Products.FirstOrDefault(x => x.Id == id);
-
-            name = product != null ? product.PrintProductName : "";
-
-            return name;
         }
 
     }
