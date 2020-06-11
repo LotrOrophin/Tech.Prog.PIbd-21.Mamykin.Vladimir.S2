@@ -1,6 +1,6 @@
 ﻿namespace AbstractPrintingHouseView
 {
-    partial class FormListComponent
+    partial class FormOfficeComponent
     {
         /// <summary>
         /// Обязательная переменная конструктора.

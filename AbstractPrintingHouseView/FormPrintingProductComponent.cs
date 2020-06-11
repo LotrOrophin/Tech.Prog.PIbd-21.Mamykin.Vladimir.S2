@@ -35,7 +35,7 @@ namespace AbstractPrintingHouseView
         public FormPrintingProductComponent(IOfficeComponentLogic logic)
         {
             InitializeComponent();
-            List<OfficeComponentViewModel> list = logic.Read(null);
+            List<OfficeComponentViewModel> list = logic.GetList();
             if (list != null)
             {
                 comboBoxComponent.DisplayMember = "ComponentName";

@@ -15,14 +15,14 @@ using Unity;
 
 namespace AbstractPrintingHouseView
 {
-    public partial class FormListComponent : Form
+    public partial class FormOfficeComponent : Form
     {
         [Unity.Dependency]
         public new IUnityContainer Container { get; set; }
         public int Id { set { id = value; } }
         private readonly IOfficeComponentLogic logic;
         private int? id;
-        public FormListComponent(IOfficeComponentLogic logic)
+        public FormOfficeComponent(IOfficeComponentLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
@@ -33,7 +33,7 @@ namespace AbstractPrintingHouseView
             {
                 try
                 {
-                    var view = logic.Read(new OfficeComponentBindingModel { Id = id })?[0];
+                    var view = logic.GetElement(id.Value);
                     if (view != null)
                     {
                         textBoxName.Text = view.ComponentName;

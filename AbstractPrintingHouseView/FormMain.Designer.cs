@@ -38,11 +38,13 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компонентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.складыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrintingProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Counr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonReplenishWarehouse = new System.Windows.Forms.Button();
             this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateImplements = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -114,6 +116,17 @@
             this.ButtonCreateOrder.Text = "Создать заказ";
             this.ButtonCreateOrder.UseVisualStyleBackColor = true;
             this.ButtonCreateOrder.Click += new System.EventHandler(this.ButtonCreateOrder_Click);
+            //
+            // buttonReplenishWarehouse
+            // 
+
+            this.buttonReplenishWarehouse.Location = new System.Drawing.Point(653, 350);
+            this.buttonReplenishWarehouse.Name = "buttonReplenishWarehouse";
+            this.buttonReplenishWarehouse.Size = new System.Drawing.Size(131, 26);
+            this.buttonReplenishWarehouse.TabIndex = 7;
+            this.buttonReplenishWarehouse.Text = "Пополнить склад";
+            this.buttonReplenishWarehouse.UseVisualStyleBackColor = true;
+            this.buttonReplenishWarehouse.Click += new System.EventHandler(this.buttonReplenishWarehouse_Click);
             // 
             // menuStrip1
             // 
@@ -129,7 +142,8 @@
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.компонентыToolStripMenuItem,
-            this.изделияToolStripMenuItem});
+            this.изделияToolStripMenuItem,
+            this.складыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -147,6 +161,17 @@
             this.изделияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.изделияToolStripMenuItem.Text = "Изделия";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.изделияToolStripMenuItem_Click);
+            // складыToolStripMenuItem
+            // 
+            this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
+            this.складыToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
+            this.складыToolStripMenuItem.Text = "Склады";
+            this.складыToolStripMenuItem.Click += new System.EventHandler(this.складыToolStripMenuItem_Click);
+            // 
+            // 
+            // buttonReplenishWarehouse
+            // 
+           
             // 
             // Id
             // 
@@ -191,6 +216,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ButtonCreateOrder);
             this.Controls.Add(this.ButtonRef);
+            this.Controls.Add(this.buttonReplenishWarehouse);
             this.Controls.Add(this.ButtonPayOrder);
             this.Controls.Add(this.ButtonOrderReady);
             this.Controls.Add(this.ButtonTakeOrderInWork);
@@ -215,6 +241,8 @@
         private System.Windows.Forms.Button ButtonOrderReady;
         private System.Windows.Forms.Button ButtonPayOrder;
         private System.Windows.Forms.Button ButtonRef;
+        private System.Windows.Forms.ToolStripMenuItem складыToolStripMenuItem;
+        private System.Windows.Forms.Button buttonReplenishWarehouse;
         private System.Windows.Forms.Button ButtonCreateOrder;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
