@@ -85,13 +85,21 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 Sum = rec.Sum,
                 ClientFIO = source.Clients.FirstOrDefault(recC => recC.Id == rec.ClientId)?.FIO,
                 ImplementerFIO = source.Implementers.FirstOrDefault(recC => recC.Id == rec.ImplementerId)?.ImplementerFIO,
-                PrintProductName = source.Products.FirstOrDefault(mod => mod.Id
-            == rec.ProductId).PrintProductName,
+                PrintProductName = GetProductName(rec.ProductId),
                 Status = rec.Status,
                 DateCreate = rec.DateCreate,
                 DateImplement = rec.DateImplement
             })
             .ToList();
+        }
+        private string GetProductName(int id)
+        {
+            string name = "";
+            var product = source.Products.FirstOrDefault(x => x.Id == id);
+
+            name = product != null ? product.PrintProductName : "";
+
+            return name;
         }
 
     }
