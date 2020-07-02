@@ -71,8 +71,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 PrintProductId = rec.ProductId,               
                 Count = rec.Count,
                 Sum = rec.Sum,
-                PrintProductName = source.Products.FirstOrDefault(mod => mod.Id
-            == rec.ProductId).PrintProductName,
+                PrintProductName = GetProductName(rec.ProductId),
                 Status = rec.Status,
                 DateCreate = rec.DateCreate,
                 DateImplement = rec.DateImplement
