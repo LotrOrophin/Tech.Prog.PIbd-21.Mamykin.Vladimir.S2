@@ -107,7 +107,7 @@ namespace AbstractPrintingHouseListImplement.Implements
             {
                 if (product.Id == order.ProductId)
                 {
-                    productName = product.ProductName;
+                    productName = product.PrintProductName;
                 }
             }
 

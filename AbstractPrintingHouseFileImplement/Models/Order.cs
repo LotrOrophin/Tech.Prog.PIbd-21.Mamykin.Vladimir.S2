@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AbstractPrintingHouseBusinessLogic.Enums;
+﻿using AbstractPrintingHouseBusinessLogic.Enums;
+using System;
 
 
-namespace AbstractPrintingHouseBusinessLogic.BindingModels
+namespace AbstractPrintingHouseFileImplement.Models
 {
     /// <summary>
     /// Заказ
     /// </summary>
-    public class OrderBindingModel
+    public class Order
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public int ProductId { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
@@ -19,5 +17,4 @@ namespace AbstractPrintingHouseBusinessLogic.BindingModels
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
     }
-
 }
