@@ -96,11 +96,8 @@ namespace AbstractPrintingHouseFileImplement.Implements
         {
             string name = "";
             var product = source.Products.FirstOrDefault(x => x.Id == id);
-
             name = product != null ? product.PrintProductName : "";
-
             return name;
         }
-
     }
 }
