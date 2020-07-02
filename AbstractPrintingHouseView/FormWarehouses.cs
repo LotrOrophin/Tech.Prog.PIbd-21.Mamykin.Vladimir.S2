@@ -1,4 +1,5 @@
-﻿using AbstractPrintingHouseBusinessLogic.Interfaces;
+﻿using AbstractPrintingHouseBusinessLogic.BindingModels;
+using AbstractPrintingHouseBusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,13 +35,14 @@ namespace AbstractPrintingHouseView
         {
             try
             {
-                var list = logic.GetList();
+                var list = logic.Read(null);
 
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
                     dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView.Columns[2].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -87,7 +89,7 @@ namespace AbstractPrintingHouseView
 
                     try
                     {
-                        logic.DelElement(id);
+                        logic.Delete(new WarehouseBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {

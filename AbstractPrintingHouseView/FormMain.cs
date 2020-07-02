@@ -69,11 +69,6 @@ namespace AbstractPrintingHouseView
             var form = Container.Resolve<FormWarehouses>();
             form.ShowDialog();
         }
-        private void buttonReplenishWarehouse_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormReplenishWarehouse>();
-            form.ShowDialog();
-        }
         private void ButtonCreateOrder_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormCreateOrder>();
@@ -134,6 +129,12 @@ namespace AbstractPrintingHouseView
         private void ButtonRef_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void пополнитьСкладToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReplenishWarehouse>();
+            form.ShowDialog();
         }
     }
 }

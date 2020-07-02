@@ -41,7 +41,9 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
             }
-            orderLogic.CreateOrUpdate(new OrderBindingModel
+            if (warehouseLogic.WriteOffComponents(order))
+            {
+                orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
                 ProductId = order.PrintProductId,
@@ -51,6 +53,11 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
                 DateImplement = DateTime.Now,
                 Status = OrderStatus.Выполняется
             });
+            }
+            else
+            {
+                throw new Exception("На складах недостаточно компонентов");
+            }
         }
         public void FinishOrder(ChangeStatusBindingModel model)
         {

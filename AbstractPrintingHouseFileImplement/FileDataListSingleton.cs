@@ -18,16 +18,22 @@ namespace AbstractPrintingHouseFileImplement
         private readonly string OrderFileName = "Order.xml";
         private readonly string ProductFileName = "Product.xml";
         private readonly string ProductComponentFileName = "ProductComponent.xml";
+        private readonly string WarehouseFileName = "Warehouse.xml";
+        private readonly string WarehouseComponentFileName = "WarehouseComponent.xml";
         public List<OfficeComponent> Components { get; set; }
         public List<Order> Orders { get; set; }
         public List<PrintingProduct> Products { get; set; }
         public List<ProductOfficeComponent> ProductComponents { get; set; }
+        public List<Warehouse> Warehouses { get; set; }
+        public List<WarehouseComponent> WarehouseComponents { get; set; }
         private FileDataListSingleton()
         {
             Components = LoadComponents();
             Orders = LoadOrders();
             Products = LoadProducts();
             ProductComponents = LoadProductComponents();
+            Warehouses = LoadWarehouses();
+            WarehouseComponents = LoadWarehouseComponents();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -43,6 +49,8 @@ namespace AbstractPrintingHouseFileImplement
             SaveOrders();
             SaveProducts();
             SaveProductComponents();
+            SaveWarehouses();
+            SaveWarehouseComponents();
         }
         private List<OfficeComponent> LoadComponents()
         {
@@ -100,7 +108,7 @@ namespace AbstractPrintingHouseFileImplement
                     list.Add(new PrintingProduct
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        PrintProductName = elem.Element("ProductName").Value,
+                        ProductName = elem.Element("ProductName").Value,
                         Price = Convert.ToDecimal(elem.Element("Price").Value)
                     });
                 }
@@ -127,6 +135,52 @@ namespace AbstractPrintingHouseFileImplement
             }
             return list;
         }
+        private List<Warehouse> LoadWarehouses()
+        {
+            var list = new List<Warehouse>();
+
+            if (File.Exists(WarehouseFileName))
+            {
+                XDocument xDocument = XDocument.Load(WarehouseFileName);
+                var xElements = xDocument.Root.Elements("Warehouse").ToList();
+
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Warehouse
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        WarehouseName = elem.Element("WarehouseName").Value
+                    });
+                }
+            }
+
+            return list;
+        }
+
+        private List<WarehouseComponent> LoadWarehouseComponents()
+        {
+            var list = new List<WarehouseComponent>();
+
+            if (File.Exists(WarehouseComponentFileName))
+            {
+                XDocument xDocument = XDocument.Load(WarehouseComponentFileName);
+                var xElements = xDocument.Root.Elements("WarehouseComponent").ToList();
+
+                foreach (var elem in xElements)
+                {
+                    list.Add(new WarehouseComponent
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        WarehouseId = Convert.ToInt32(elem.Element("WarehouseId").Value),
+                        ComponentId = Convert.ToInt32(elem.Element("ComponentId").Value),
+                        Count = Convert.ToInt32(elem.Element("Count").Value)
+                    });
+                }
+            }
+
+            return list;
+        }
+
         private void SaveComponents()
         {
             if (Components != null)
@@ -171,7 +225,7 @@ namespace AbstractPrintingHouseFileImplement
                 {
                     xElement.Add(new XElement("Product",
                     new XAttribute("Id", product.Id),
-                    new XElement("ProductName", product.PrintProductName),
+                    new XElement("ProductName", product.ProductName),
                     new XElement("Price", product.Price)));
                 }
                 XDocument xDocument = new XDocument(xElement);
@@ -193,6 +247,43 @@ namespace AbstractPrintingHouseFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductComponentFileName);
+            }
+        }
+        private void SaveWarehouses()
+        {
+            if (ProductComponents != null)
+            {
+                var xElement = new XElement("Warehouses");
+
+                foreach (var warehouse in Warehouses)
+                {
+                    xElement.Add(new XElement("Warehouse",
+                    new XAttribute("Id", warehouse.Id),
+                    new XElement("WarehouseName", warehouse.WarehouseName)));
+                }
+
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(WarehouseFileName);
+            }
+        }
+
+        private void SaveWarehouseComponents()
+        {
+            if (WarehouseComponents != null)
+            {
+                var xElement = new XElement("WarehouseComponents");
+
+                foreach (var warehouseComponent in WarehouseComponents)
+                {
+                    xElement.Add(new XElement("WarehouseComponent",
+                    new XAttribute("Id", warehouseComponent.Id),
+                    new XElement("WarehouseId", warehouseComponent.WarehouseId),
+                    new XElement("ComponentId", warehouseComponent.ComponentId),
+                    new XElement("Count", warehouseComponent.Count)));
+                }
+
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(WarehouseComponentFileName);
             }
         }
     }

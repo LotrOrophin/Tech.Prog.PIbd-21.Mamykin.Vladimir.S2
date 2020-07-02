@@ -10,7 +10,7 @@ namespace AbstractPrintingHouseListImplement.Models
     public class PrintingProduct
     {
         public int Id { get; set; }
-        public string PrintProductName { get; set; }
+        public string ProductName { get; set; }
         public decimal Price { get; set; }
     }
 }

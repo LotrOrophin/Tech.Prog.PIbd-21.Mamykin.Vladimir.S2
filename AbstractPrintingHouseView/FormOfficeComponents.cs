@@ -33,7 +33,7 @@ namespace AbstractPrintingHouseView
         {
             try
             {
-                var list = logic.GetList();
+                var list = logic.Read(null);
                 if (list != null)
                 {
                     dataGridView.DataSource = list;

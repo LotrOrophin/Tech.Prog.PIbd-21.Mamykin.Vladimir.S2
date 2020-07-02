@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrintingProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Counr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateImplements = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonTakeOrderInWork = new System.Windows.Forms.Button();
             this.ButtonOrderReady = new System.Windows.Forms.Button();
             this.ButtonPayOrder = new System.Windows.Forms.Button();
@@ -39,14 +46,7 @@
             this.компонентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.складыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrintingProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Counr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonReplenishWarehouse = new System.Windows.Forms.Button();
-            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateImplements = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пополнитьСкладToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,42 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(612, 395);
             this.dataGridView.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // PrintingProduct
+            // 
+            this.PrintingProduct.HeaderText = "Канцелярское изделие";
+            this.PrintingProduct.Name = "PrintingProduct";
+            // 
+            // Counr
+            // 
+            this.Counr.HeaderText = "Количество";
+            this.Counr.Name = "Counr";
+            // 
+            // Summ
+            // 
+            this.Summ.HeaderText = "Сумма";
+            this.Summ.Name = "Summ";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Статус";
+            this.Status.Name = "Status";
+            // 
+            // DateCreate
+            // 
+            this.DateCreate.HeaderText = "Дата создание";
+            this.DateCreate.Name = "DateCreate";
+            // 
+            // DateImplements
+            // 
+            this.DateImplements.HeaderText = "Дата выполнения";
+            this.DateImplements.Name = "DateImplements";
             // 
             // ButtonTakeOrderInWork
             // 
@@ -116,24 +152,14 @@
             this.ButtonCreateOrder.Text = "Создать заказ";
             this.ButtonCreateOrder.UseVisualStyleBackColor = true;
             this.ButtonCreateOrder.Click += new System.EventHandler(this.ButtonCreateOrder_Click);
-            //
-            // buttonReplenishWarehouse
             // 
-
-            this.buttonReplenishWarehouse.Location = new System.Drawing.Point(653, 350);
-            this.buttonReplenishWarehouse.Name = "buttonReplenishWarehouse";
-            this.buttonReplenishWarehouse.Size = new System.Drawing.Size(131, 26);
-            this.buttonReplenishWarehouse.TabIndex = 7;
-            this.buttonReplenishWarehouse.Text = "Пополнить склад";
-            this.buttonReplenishWarehouse.UseVisualStyleBackColor = true;
-            this.buttonReplenishWarehouse.Click += new System.EventHandler(this.buttonReplenishWarehouse_Click);
-            // 
-            // menuStrip1
+            // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникиToolStripMenuItem});
+            this.справочникиToolStripMenuItem,
+            this.пополнитьСкладToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip1";
+            this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
             this.menuStrip.TabIndex = 6;
             this.menuStrip.Text = "menuStrip1";
@@ -161,53 +187,20 @@
             this.изделияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.изделияToolStripMenuItem.Text = "Изделия";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.изделияToolStripMenuItem_Click);
+            // 
             // складыToolStripMenuItem
             // 
             this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
-            this.складыToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
+            this.складыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.складыToolStripMenuItem.Text = "Склады";
             this.складыToolStripMenuItem.Click += new System.EventHandler(this.складыToolStripMenuItem_Click);
             // 
+            // пополнитьСкладToolStripMenuItem
             // 
-            // buttonReplenishWarehouse
-            // 
-           
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // PrintingProduct
-            // 
-            this.PrintingProduct.HeaderText = "Канцелярское изделие";
-            this.PrintingProduct.Name = "PrintingProduct";
-            // 
-            // Counr
-            // 
-            this.Counr.HeaderText = "Количество";
-            this.Counr.Name = "Counr";
-            // 
-            // Summ
-            // 
-            this.Summ.HeaderText = "Сумма";
-            this.Summ.Name = "Summ";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Статус";
-            this.Status.Name = "Status";
-            // 
-            // DateCreate
-            // 
-            this.DateCreate.HeaderText = "Дата создание";
-            this.DateCreate.Name = "DateCreate";
-            // 
-            // DateImplements
-            // 
-            this.DateImplements.HeaderText = "Дата выполнения";
-            this.DateImplements.Name = "DateImplements";
+            this.пополнитьСкладToolStripMenuItem.Name = "пополнитьСкладToolStripMenuItem";
+            this.пополнитьСкладToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.пополнитьСкладToolStripMenuItem.Text = "Пополнить склад";
+            this.пополнитьСкладToolStripMenuItem.Click += new System.EventHandler(this.пополнитьСкладToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -216,7 +209,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ButtonCreateOrder);
             this.Controls.Add(this.ButtonRef);
-            this.Controls.Add(this.buttonReplenishWarehouse);
             this.Controls.Add(this.ButtonPayOrder);
             this.Controls.Add(this.ButtonOrderReady);
             this.Controls.Add(this.ButtonTakeOrderInWork);
@@ -242,7 +234,6 @@
         private System.Windows.Forms.Button ButtonPayOrder;
         private System.Windows.Forms.Button ButtonRef;
         private System.Windows.Forms.ToolStripMenuItem складыToolStripMenuItem;
-        private System.Windows.Forms.Button buttonReplenishWarehouse;
         private System.Windows.Forms.Button ButtonCreateOrder;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
@@ -255,5 +246,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateImplements;
+        private System.Windows.Forms.ToolStripMenuItem пополнитьСкладToolStripMenuItem;
     }
 }

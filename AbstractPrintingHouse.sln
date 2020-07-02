@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractPrintingHouseBusine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractPrintingHouseListImplement", "AbstractPrintingHouseListImplement\AbstractPrintingHouseListImplement.csproj", "{CAB4523E-8634-4036-9AB2-7521FD13925A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractPrintingHouseFileImplement", "AbstractPrintingHouseFileImplement\AbstractPrintingHouseFileImplement.csproj", "{2C95DF08-BA04-4B95-AAAA-B65042A40AAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractPrintingHouseFileImplement", "AbstractPrintingHouseFileImplement\AbstractPrintingHouseFileImplement.csproj", "{5293C179-EE12-43AF-B661-30E4CF141C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{CAB4523E-8634-4036-9AB2-7521FD13925A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAB4523E-8634-4036-9AB2-7521FD13925A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAB4523E-8634-4036-9AB2-7521FD13925A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C95DF08-BA04-4B95-AAAA-B65042A40AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C95DF08-BA04-4B95-AAAA-B65042A40AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C95DF08-BA04-4B95-AAAA-B65042A40AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C95DF08-BA04-4B95-AAAA-B65042A40AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5293C179-EE12-43AF-B661-30E4CF141C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5293C179-EE12-43AF-B661-30E4CF141C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5293C179-EE12-43AF-B661-30E4CF141C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5293C179-EE12-43AF-B661-30E4CF141C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

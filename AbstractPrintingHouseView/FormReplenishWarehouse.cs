@@ -36,7 +36,7 @@ namespace AbstractPrintingHouseView
         {
             try
             {
-                List<OfficeComponentViewModel> list = componentLogic.GetList();
+                List<OfficeComponentViewModel> list = componentLogic.Read(null);
                 if (list != null)
                 {
                     comboBoxComponent.DisplayMember = "ComponentName";
@@ -52,7 +52,7 @@ namespace AbstractPrintingHouseView
 
             try
             {
-                List<WarehouseViewModel> list = warehouseLogic.GetList();
+                List<WarehouseViewModel> list = warehouseLogic.Read(null);
                 if (list != null)
                 {
                     comboBoxWarehouse.DisplayMember = "WarehouseName";

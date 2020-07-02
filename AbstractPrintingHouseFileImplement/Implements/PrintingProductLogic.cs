@@ -17,8 +17,8 @@ namespace AbstractPrintingHouseFileImplement.Implements
         }
         public void CreateOrUpdate(PrintingProductBindingModel model)
         {
-            PrintingProduct element = source.Products.FirstOrDefault(rec => rec.PrintProductName ==
-           model.PrintProductName && rec.Id != model.Id);
+            PrintingProduct element = source.Products.FirstOrDefault(rec => rec.ProductName ==
+           model.ProductName && rec.Id != model.Id);
             if (element != null)
             {
                 throw new Exception("Уже есть изделие с таким названием");
@@ -38,7 +38,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
                 element = new PrintingProduct { Id = maxId + 1 };
                 source.Products.Add(element);
             }
-            element.PrintProductName = model.PrintProductName;
+            element.ProductName = model.ProductName;
             element.Price = model.Price;
             // удалили те, которых нет в модели
             source.ProductComponents.RemoveAll(rec => rec.ProductId == model.Id &&
@@ -87,7 +87,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
             .Select(rec => new PrintingProductViewModel
             {
                 Id = rec.Id,
-                PrintProductName = rec.PrintProductName,
+                ProductName = rec.ProductName,
                 Price = rec.Price,
                 ProductComponents = source.ProductComponents
             .Where(recPC => recPC.ProductId == rec.Id)

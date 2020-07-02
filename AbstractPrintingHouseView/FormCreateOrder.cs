@@ -30,7 +30,7 @@ namespace AbstractPrintingHouseView
                 List<PrintingProductViewModel> list = logicPrint.Read(null);
                 if (list != null)
                 {
-                    comboBoxPrintProduct.DisplayMember = "PrintProductName";
+                    comboBoxPrintProduct.DisplayMember = "ProductName";
                     comboBoxPrintProduct.ValueMember = "Id";
                     comboBoxPrintProduct.DataSource = list;
                     comboBoxPrintProduct.SelectedItem = null;
