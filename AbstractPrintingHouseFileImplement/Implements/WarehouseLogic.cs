@@ -177,7 +177,7 @@ namespace AbstractPrintingHouseFileImplement.Implements
             foreach (var pc in productComponents)
             {
                 var warehouseComponent = source.WarehouseComponents.Where(rec => rec.ComponentId == pc.ComponentId);
-                int neededCount = pc.Count;
+                int neededCount = pc.Count * model.Count;
 
                 foreach (var wc in warehouseComponent)
                 {
