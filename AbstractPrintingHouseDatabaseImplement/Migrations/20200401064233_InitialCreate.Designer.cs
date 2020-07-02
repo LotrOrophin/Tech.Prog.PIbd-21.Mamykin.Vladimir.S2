@@ -4,14 +4,16 @@ using AbstractPrintingHouseDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbstractPrintingHouseDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractPrintingHouseDatabase))]
-    partial class AbstractPrintingHouseDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200401064233_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,77 +21,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Client", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FIO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Implementer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImplementerFIO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PauseTime")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkingTime")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Implementers");
-                });
-
-            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.MessageInfo", b =>
-                {
-                    b.Property<string>("MessageId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateDelivery")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SenderName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MessageId");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("MessageInfoes");
-                });
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.OfficeComponent", b =>
                 {
                     b.Property<int>("Id")
@@ -113,8 +44,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -124,7 +53,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ImplementerId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("PrintingProductId")
@@ -137,11 +66,8 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-                    b.HasIndex("ClientId");
 
-                    b.HasIndex("ImplementerId");
-
-                    b.HasIndex("PrintingProductId");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Orders");
                 });
@@ -190,30 +116,11 @@ namespace AbstractPrintingHouseDatabaseImplement.Migrations
                     b.ToTable("ProductComponents");
                 });
 
-            modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.MessageInfo", b =>
-                {
-                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-                });
-
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.Order", b =>
                 {
-                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Client", "Client")
-                        .WithMany("Orders")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.Implementer", "Implementer")
-                        .WithMany("Orders")
-                        .HasForeignKey("ImplementerId");
-
                     b.HasOne("AbstractPrintingHouseDatabaseImplement.Models.PrintingProduct", "PrintingProduct")
                         .WithMany("Orders")
-                        .HasForeignKey("PrintingProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("AbstractPrintingHouseDatabaseImplement.Models.ProductOfficeComponent", b =>
