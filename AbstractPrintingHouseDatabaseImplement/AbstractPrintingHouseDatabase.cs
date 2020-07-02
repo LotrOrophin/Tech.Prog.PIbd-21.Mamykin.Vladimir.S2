@@ -18,6 +18,8 @@ namespace AbstractPrintingHouseDatabaseImplement
         public virtual DbSet<PrintingProduct> Products { set; get; }
         public virtual DbSet<ProductOfficeComponent> ProductComponents { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<Warehouse> Warehouses { set; get; }
+        public virtual DbSet<WarehouseComponent> WarehouseComponents { set; get; }
     }
 }
 

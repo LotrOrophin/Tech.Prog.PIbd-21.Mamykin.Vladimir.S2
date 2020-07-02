@@ -165,16 +165,9 @@ namespace AbstractPrintingHouseListImplement.Implements
             };
         }
 
-        public bool AreComponentsEnough(OrderViewModel model)
+        public void WriteOffComponents(OrderViewModel model)
         {
             // Заглушка
-            return true;
-        }
-
-        public bool WriteOffComponents(OrderViewModel model)
-        {
-            // Заглушка
-            return true;
         }
     }
 }

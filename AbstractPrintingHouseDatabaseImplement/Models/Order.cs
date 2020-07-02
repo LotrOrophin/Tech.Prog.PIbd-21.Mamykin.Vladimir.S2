@@ -21,7 +21,6 @@ namespace AbstractPrintingHouseDatabaseImplement.Models
         [Required]
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }        
-
         public PrintingProduct PrintingProduct { get; set; }
     }
 }
