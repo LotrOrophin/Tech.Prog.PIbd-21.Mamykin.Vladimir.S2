@@ -14,6 +14,6 @@ namespace AbstractPrintingHouseBusinessLogic.ViewModels
         [DisplayName("Название склада")]
         public string WarehouseName { get; set; }
 
-        public List<WarehouseComponentViewModel> WarehouseComponents { get; set; }
+        public Dictionary<int, (string, int)> WarehouseComponents { get; set; }
     }
 }

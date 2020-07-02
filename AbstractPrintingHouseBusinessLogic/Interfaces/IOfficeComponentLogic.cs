@@ -8,8 +8,7 @@ namespace AbstractPrintingHouseBusinessLogic.Interfaces
 {
     public interface IOfficeComponentLogic
     {
-        List<OfficeComponentViewModel> GetList();
-        OfficeComponentViewModel GetElement(int id);
+        List<OfficeComponentViewModel> Read(OfficeComponentBindingModel model);
         void CreateOrUpdate(OfficeComponentBindingModel model);
         void Delete(OfficeComponentBindingModel model);
     }

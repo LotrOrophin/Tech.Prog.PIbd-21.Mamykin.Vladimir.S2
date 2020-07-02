@@ -33,7 +33,7 @@ namespace AbstractPrintingHouseView
             {
                 try
                 {
-                    var view = logic.GetElement(id.Value);
+                    var view = logic.Read(new OfficeComponentBindingModel { Id = id.Value })?[0];
                     if (view != null)
                     {
                         textBoxName.Text = view.ComponentName;
@@ -56,7 +56,7 @@ namespace AbstractPrintingHouseView
             }
             try
             {
-                logic.CreateOrUpdate(new OfficeComponentBindingModel
+                logic?.CreateOrUpdate(new OfficeComponentBindingModel
                 {
                     Id = id,
                     ComponentName = textBoxName.Text

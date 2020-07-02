@@ -50,38 +50,6 @@ namespace AbstractPrintingHouseListImplement.Implements
                 source.Components.Add(CreateModel(model, tempComponent));
             }
         }
-        public List<OfficeComponentViewModel> GetList()
-        {
-            List<OfficeComponentViewModel> result = new List<OfficeComponentViewModel>();
-
-            for (int i = 0; i < source.Components.Count; ++i)
-            {
-                result.Add(new OfficeComponentViewModel
-                {
-                    Id = source.Components[i].Id,
-                    ComponentName = source.Components[i].ComponentName
-                });
-            }
-
-            return result;
-        }
-
-        public OfficeComponentViewModel GetElement(int id)
-        {
-            for (int i = 0; i < source.Components.Count; ++i)
-            {
-                if (source.Components[i].Id == id)
-                {
-                    return new OfficeComponentViewModel
-                    {
-                        Id = source.Components[i].Id,
-                        ComponentName = source.Components[i].ComponentName
-                    };
-                }
-            }
-
-            throw new Exception("Элемент не найден");
-        }
 
         public void Delete(OfficeComponentBindingModel model)
         {
@@ -107,6 +75,28 @@ namespace AbstractPrintingHouseListImplement.Implements
                 Id = component.Id,
                 ComponentName = component.ComponentName
             };
+        }
+        public List<OfficeComponentViewModel> Read(OfficeComponentBindingModel model)
+        {
+            List<OfficeComponentViewModel> result = new List<OfficeComponentViewModel>();
+
+            foreach (var component in source.Components)
+            {
+                if (model != null)
+                {
+                    if (component.Id == model.Id)
+                    {
+                        result.Add(CreateViewModel(component));
+                        break;
+                    }
+
+                    continue;
+                }
+
+                result.Add(CreateViewModel(component));
+            }
+
+            return result;
         }
     }
 }     

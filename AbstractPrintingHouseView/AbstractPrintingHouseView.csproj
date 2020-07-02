@@ -166,6 +166,10 @@
       <Project>{f99a5fac-4ee9-4fcd-a23d-60814d0a876c}</Project>
       <Name>AbstractPrintingHouseBusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AbstractPrintingHouseFileImplement\AbstractPrintingHouseFileImplement.csproj">
+      <Project>{5293c179-ee12-43af-b661-30e4cf141c34}</Project>
+      <Name>AbstractPrintingHouseFileImplement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AbstractPrintingHouseListImplement\AbstractPrintingHouseListImplement.csproj">
       <Project>{cab4523e-8634-4036-9ab2-7521fd13925a}</Project>
       <Name>AbstractPrintingHouseListImplement</Name>
