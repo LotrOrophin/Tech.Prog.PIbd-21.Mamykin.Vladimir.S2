@@ -64,6 +64,8 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
                 Sum = x.Sum,
                 Status = x.Status
             })
+            .GroupBy(rec => rec.DateCreate.Date)
+            .OrderBy(recG => recG.Key)
             .ToList();
         }
         /// <summary>
