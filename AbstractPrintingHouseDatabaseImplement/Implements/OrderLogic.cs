@@ -70,8 +70,7 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                     PrintProductId = rec.PrintingProductId,               
                     Count = rec.Count,
                     Sum = rec.Sum,
-                    PrintProductName = context.Products.FirstOrDefault(mod => mod.Id
-                == rec.PrintingProductId).PrintProductName,
+                    PrintProductName = rec.Product.PrintProductName,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement
