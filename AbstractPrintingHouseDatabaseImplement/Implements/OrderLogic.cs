@@ -65,25 +65,26 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
             using (var context = new AbstractPrintingHouseDatabase())
             {
                 return context.Orders
-                .Where(rec => model == null || (rec.Id == model.Id &&
-               model.Id.HasValue) ||
-                (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate
-               >= model.DateFrom && rec.DateCreate <= model.DateTo))
+                .Where(
+                    rec => model == null 
+                    || (rec.Id == model.Id && model.Id.HasValue) 
+                    || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                )
+                .Include(rec => rec.Product)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
-                    PrintProductId = rec.PrintingProductId,               
+                    ProductId = rec.ProductId,
+
                     Count = rec.Count,
                     Sum = rec.Sum,
-                    PrintProductName = rec.Product.PrintProductName,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement
+                    DateImplement = rec.DateImplement,
+                    PrintProductName = rec.Product.PrintProductName
                 })
                 .ToList();
-            }
-            
+            }          
         }
-
     }
 }
