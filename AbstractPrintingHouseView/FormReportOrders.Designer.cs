@@ -108,7 +108,7 @@
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.dateTimePickerTo);
             this.Name = "FormReportOrders";
-            this.Text = "FormClientOrders";
+            this.Text = "Заказы";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

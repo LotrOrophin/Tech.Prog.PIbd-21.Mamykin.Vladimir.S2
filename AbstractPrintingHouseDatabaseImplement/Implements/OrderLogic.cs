@@ -85,11 +85,10 @@ namespace AbstractPrintingHouseDatabaseImplement.Implements
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement,
                     ClientFIO = rec.Client.FIO
+
                 })
                 .ToList();
-            }
-            
+            }          
         }
-
     }
 }
