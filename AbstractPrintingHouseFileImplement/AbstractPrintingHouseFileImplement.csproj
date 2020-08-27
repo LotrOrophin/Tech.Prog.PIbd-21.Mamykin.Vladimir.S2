@@ -13,4 +13,8 @@
     <ProjectReference Include="..\AbstractPrintingHouseListImplement\AbstractPrintingHouseListImplement.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
