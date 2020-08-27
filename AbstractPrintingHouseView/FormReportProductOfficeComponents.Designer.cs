@@ -68,7 +68,7 @@
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.ButtonSaveToPdf);
             this.Name = "FormReportProductOfficeComponents";
-            this.Text = "FormReportProductOfficeComponents";
+            this.Text = "Компоненты и изделия";
             this.Load += new System.EventHandler(this.FormReportProductOfficeComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ReportProductOfficeComponentViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
