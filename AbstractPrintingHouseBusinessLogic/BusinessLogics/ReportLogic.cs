@@ -54,7 +54,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
         /// <returns></returns>
         public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
         {
-            var list = orderLogic
+           var list = orderLogic
             .Read(new OrderBindingModel
             {
                 DateFrom = model.DateFrom,
