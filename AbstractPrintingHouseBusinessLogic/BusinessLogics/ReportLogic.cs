@@ -54,19 +54,17 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
         /// <returns></returns>
         public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
         {
-            var orders = orderLogic.Read(new OrderBindingModel { DateFrom = model.DateFrom, DateTo = model.DateTo });
-            return orders
-            .Select(x => new ReportOrdersViewModel
+            var list = orderLogic
+            .Read(new OrderBindingModel
             {
-                DateCreate = x.DateCreate,
-                PrintingProductName = x.PrintProductName,
-                Count = x.Count,
-                Sum = x.Sum,
-                Status = x.Status
-            })               
+                DateFrom = model.DateFrom,
+                DateTo = model.DateTo
+            })
             .GroupBy(rec => rec.DateCreate.Date)
             .OrderBy(recG => recG.Key)
             .ToList();
+
+            return list;
         }
         /// <summary>
         /// Сохранение кондитерских изделий с ценой в файл-Word
