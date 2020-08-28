@@ -52,7 +52,7 @@ namespace AbstractPrintingHouseBusinessLogic.BusinessLogics
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
+        public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)
         {
             var list = orderLogic
             .Read(new OrderBindingModel
