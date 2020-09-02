@@ -23,6 +23,10 @@ namespace AbstractPrintingHouseListImplement.Implements
 
             foreach (var client in source.Clients)
             {
+                if (client.Login  == model.Login  && client.Id != model.Id)
+                {
+                    throw new Exception("Уже есть пользователь с таким Email");
+                }
                 if (!model.Id.HasValue && client.Id >= tempClient.Id)
                 {
                     tempClient.Id = tempClient.Id + 1;
